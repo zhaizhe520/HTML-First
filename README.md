@@ -1,60 +1,74 @@
 # HTML-First
 破站
 
-# 轻小说文件
-1. HTML5 结构化标签
-这些标签用于定义页面的不同区块，使代码语义化（让机器和人都能看懂网页的结构）。
+网页项目结构解析：轻小说展示页
+1. HTML 核心内容拆解
+1.1 文档元数据与资源引用
+<!DOCTYPE html>: 声明文档类型为 HTML5。
 
-<header>: 定义页面的头部区域，包含标题和导航栏。
+<meta charset="utf-8">: 指定字符编码，确保中文字符正常显示。
 
-<section>: 定义文档中的节。代码中嵌套了多层 section（如 lightnovel, novel1, novel2）来对小说卡片进行布局和分组。
+<link>: 引入外部样式表 novel.css。
 
-<div>: 通用的容器标签。用于包裹具体的小说内容（如 id="angal", id="yuemei"），方便通过 CSS 进行样式控制。
+1.2 页面结构化组件
+导航头部 (<header>):
 
-2. 文本与链接
-<ul> 和 <li>: 无序列表。用于构建头部的导航菜单。
+包含一个 id="header" 的容器。
 
-<a>: 超链接。
+使用 <ul> 和 <li> 构建了包含“動畫區”、“輕小說”等跳转链接的导航菜单。
 
-内部链接: 指向本地其他页面（如 ../輕小說/novel.html）。
+内容主体 (<section class="lightnovel">):
 
-外部链接: 指向 Steam 和 Bilibili 个人主页。
+采用嵌套 section 结构（novel1, novel2）来组织不同的小说行。
 
-<p>: 段落标签。用于展示每一部小说的详细简介内容。
+每个小说单元由一个唯一的 id（如 angal, yuemei）标识，便于精准定位样式。
 
-3. 多媒体标签 (图像)
-<img>: 图像嵌入。
+1.3 数据展示与交互元素
+图像组件 (<img>):
 
-页面为每部小说使用了两张图（例如 imgA1 和 imgA2）。
+采用双图片机制（如 imgA1 为常驻封面，imgA2 为隐藏的放大层）。
 
-属性: 使用了 src 指向图片路径，width 和 height 设置初始尺寸，alt 提供替代文本。
+信息表格 (<table>):
 
-4. 数据展示 (表格)
-页面使用了 <table> 结构来整齐地排列小说的元数据（名称、标签、角色）：
+使用 <th>（表头）标识属性名（名称、Tag、角色）。
 
-<tr>: 定义表格行。
+使用 <td>（单元格）展示具体内容。
 
-<th>: 定义表头单元格（通常加粗显示），用于显示“名称”、“tag”等类目。
+文本段落 (<p>): 在表格内详细描述小说简介。
 
-<td>: 定义标准单元格，用于填充具体的小说信息。
+2. CSS 样式核心要点
+2.1 全局与背景设计
+通配符重置: 使用 * { margin: 0; padding: 0; } 消除浏览器默认边距。
 
-5. 交互与脚本链接
-<script>: 在 HTML 底部直接嵌入了 JavaScript 代码。
+固定背景: 通过 background-attachment: fixed; 配合 background-size: cover; 实现背景图随窗口拉伸且不随滚动条滚动的视觉效果。
 
-通过 document.getElementById 获取元素。
+2.2 布局技术
+Flexbox 布局:
 
-通过 onclick 事件监听点击动作。
+.novel1, .novel2 设置为 display: flex;，使两部小说横向并排。
 
-通过 classList.add/remove 动态修改类名，配合 CSS 实现图片的“放大/遮罩”效果。
-6. CSS 核心内容 (补充)
-在配套的 novel.css 中，使用了以下关键技术：
+小说容器（如 #angal）使用 margin: auto; 实现水平居中对齐。
 
-背景处理: background-attachment: fixed; 实现了背景图固定不随滚动条移动的效果。
+定位 (Positioning):
 
-Flexbox 布局: display: flex; 用于让小说封面和表格左右并排显示。
+Fixed (固定定位): #header 固定在顶部，不受滚动影响。
 
-固定定位: position: fixed; 用于让头部导航栏始终留在屏幕顶端，以及让点击后的放大图片居中显示。
+Absolute (绝对定位): 导航列表 ul 相对于 header 精确定位。
 
-伪类选择器: a:hover 和 td:hover 增加了鼠标悬停时的变色和过渡动画（transition）。
+2.3 交互视觉效果
+悬停反馈 (Hover): 给表格单元格 td 设置了 transition: 1s;。当鼠标悬浮时，背景颜色会平滑切换。
 
-层级控制: z-index 确保导航栏和放大后的图片能够浮在其他内容之上。
+弹出层实现:
+
+默认情况下，大图（如 #imgA2）为 display: none;。
+
+当 JS 激活 .active 类时，使用 position: fixed; 配合 transform: translate(-50%, -50%); 使图片在屏幕正中心弹出。
+
+3. JavaScript 交互逻辑简述
+代码通过简单的 DOM 操作 实现了图片的放大查看功能：
+
+监听点击: 为小图片绑定 onclick 事件。
+
+状态切换: 点击时通过 classList.add("active") 显示隐藏的大图。
+
+关闭预览: 再次点击大图时，通过 classList.remove("active") 将其重新隐藏。
