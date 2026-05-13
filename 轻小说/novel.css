@@ -1,0 +1,180 @@
+               * {
+               	margin: 0;
+               	padding: 0;
+               }
+
+               html {
+               	height: 100%;
+               }
+
+               body {
+               	background-image: url("./bz2.png");
+               	min-height: 100vh;
+               	background-size: cover;
+               	background-position: center;
+               	background-repeat: no-repeat;
+               	background-attachment: fixed;
+               }
+
+               #header {
+               	width: 100%;
+               	height: 70px;
+               	background-color: #00BFFF;
+               	opacity: 0.6;
+               	position: fixed;
+               	border-radius: 3px;
+               	z-index: 500;
+               }
+
+               #header #tou {
+               	position: absolute;
+               	width: 700px;
+               	height: 0px;
+               	color: #00FFFF;
+               	font-size: 45px;
+               	letter-spacing: 25px;
+               	left: 20px;
+               	top: 0px;
+               	text-shadow: 0 0 30px rgba(0, 170, 255, 0.7);
+
+               }
+
+               ul {
+               	position: absolute;
+               	right: 4px;
+               	top: 20px;
+               }
+
+               li {
+               	display: inline;
+               	width: 100%;
+               	height: 300px;
+               	font-size: 18px;
+               	margin-right: 100px;
+
+               }
+
+               li a {
+               	color: white;
+               	text-decoration: none;
+               }
+
+               li a:hover {
+               	text-decoration: none;
+               	color: #696969;
+               }
+
+               .novel1,
+               .novel2 {
+               	display: flex;
+               }
+
+               #angal,
+               #yuemei,
+               #qilai,
+               #yue {
+               	display: flex;
+               	margin-left: auto;
+               	margin-right: auto;
+               	margin-top: 3.125rem;
+               	margin-bottom: 3.125rem;
+               }
+
+               #angal table {
+               	width: 500px;
+               	height: 600px;
+               	border-collapse: collapse;
+               	/* 合并边框 */
+               	text-align: center;
+               }
+
+               #angal th,
+               #angal td {
+               	border: 1px solid #FF7F50;
+               	padding: 12px 8px;
+               }
+
+               #angal td:hover {
+               	background-color: #FF7F50;
+               	transition: 1s;
+               }
+
+               #yuemei table {
+               	width: 500px;
+               	height: 600px;
+               	border-collapse: collapse;
+               	/* 合并边框 */
+               	text-align: center;
+               }
+
+               #yuemei th,
+               #yuemei td {
+               	border: 1px solid #55ff00;
+               	padding: 12px 8px;
+               }
+
+               #yuemei td:hover {
+               	background-color: #55ff7f;
+               	transition: 1s;
+               }
+
+               #qilai table {
+               	width: 500px;
+               	height: 600px;
+               	border-collapse: collapse;
+               	/* 合并边框 */
+               	text-align: center;
+               }
+
+               #qilai th,
+               #qilai td {
+               	border: 1px solid #55ffff;
+               	padding: 12px 8px;
+               }
+
+               #qilai td:hover {
+               	background-color: #55ffff;
+               	transition: 1s;
+               }
+
+               #yue table {
+               	width: 500px;
+               	height: 600px;
+               	border-collapse: collapse;
+               	/* 合并边框 */
+               	text-align: center;
+               }
+
+               #yue th,
+               #yue td {
+               	border: 1px solid #ff0000;
+               	padding: 12px 8px;
+               }
+
+               #yue td:hover {
+               	background-color: #ff0000;
+               	transition: 1s;
+               }
+
+               #imgA2,
+               #imgB2,
+               #imgC2,
+               #imgD2 {
+               	display: none;
+               }
+
+               #imgA2.active,
+               #imgB2.active,
+               #imgC2.active,
+               #imgD2.active {
+               	width: 800px;
+               	height: auto;
+               	border: 2px solid #FF7F50;
+               	border-radius: 20px;
+               	display: block;
+               	position: fixed;
+               	top: 50%;
+               	left: 50%;
+               	transform: translate(-50%, -50%);
+               	z-index: 10000;
+               }

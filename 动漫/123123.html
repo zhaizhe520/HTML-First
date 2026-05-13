@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滚动触底改变样式</title>
+    <style>
+        body {
+            height: 1000px; /* 制造足够的滚动空间 */
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.5s ease; /* 平滑过渡效果 */
+        }
+
+        .footer {
+            height: 300px;
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+        
+        /* 触底后要添加的样式类 */
+        .bottom-reached {
+            background-color: #f0f0f0; /* 改变背景色 */
+            font-size: 18px; /* 改变字体大小 */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>向下滚动页面...</h1>
+    <p>当滚动到接近底部时，页面样式会改变。</p>
+
+    <div class="footer">
+        这是页脚
+    </div>
+
+    <script>
+        // 获取 body 元素
+        const body = document.body;
+
+        // 监听滚动事件
+        window.addEventListener('scroll', () => {
+            // 计算滚动位置
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const clientHeight = window.innerHeight || document.documentElement.clientHeight;
+            const scrollHeight = document.documentElement.scrollHeight;
+
+            // 定义触底的阈值，比如距离底部 100px 时触发
+            const bottomThreshold = 100;
+
+            // 判断是否触底
+            if (scrollTop + clientHeight >= scrollHeight - bottomThreshold) {
+                // 触底了，添加样式类
+                body.classList.add('bottom-reached');
+                console.log('已触底！');
+            } else {
+                // 离开底部区域，移除样式类
+                body.classList.remove('bottom-reached');
+            }
+        });
+    </script>
+</body>
+</html>

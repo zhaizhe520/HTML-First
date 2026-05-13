@@ -1,0 +1,388 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+/*導航欄*/
+nav {
+    height: 65px;
+    display: flex;
+    background-color: #abffd8d0;
+    opacity: 1;
+}
+
+.nav {
+    margin-left: auto;
+    margin-right: 100px;
+}
+
+nav b {
+    height: 65px;
+    line-height: 65px;
+    font-size: 35px;
+    letter-spacing: 20px;
+    margin-left: 100px;
+    font-style: italic;
+    text-shadow: 0px 0px 5px #057a44;
+}
+
+.shell {
+    display: flex;
+    gap: 20px;
+}
+
+span a {
+    text-decoration: none;
+    color: black;
+}
+
+.btnTab {
+    background-color: #9ffacf;
+    width: 170px;
+    height: 65px;
+    font-style: italic;
+    font-size: 25px;
+    text-align: center;
+    line-height: 65px;
+    transition: .3s;
+    cursor: pointer;
+    z-index: 1000000;
+    list-style: none;
+}
+
+.btnTab:hover {
+    background-color: rgb(212, 240, 204);
+}
+
+.btnTab li:hover {
+    background-color: #9ffacf;
+}
+
+.btnTab ul li {
+    list-style: none;
+    height: 0;
+    transition: .2s;
+    opacity: 0;
+    transform: translateY(-65px);
+    background-color: rgb(212, 240, 204);
+}
+
+.btnTab:hover li {
+    height: 65px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 主容器统一居中布局 */
+#tab1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    height: 100vh;
+    background-image: url("HBuilderX/素材/bz1.png");
+}
+
+.qu0,
+.qu00 {
+    display: flex;
+    gap: 150px;
+    justify-content: center;
+    width: 100%;
+}
+
+.qu1,
+.qu2,
+.qu3,
+.qu4,
+.qu5,
+.qu6 {
+    width: 25rem;
+    height: 30rem;
+    position: relative;
+    margin-top: 80px;
+}
+
+.ban1,
+.ban2,
+.ban3,
+.ban4,
+.ban5,
+.ban6 {
+    width: 25rem;
+    height: 30rem;
+}
+
+/* 图片卡片样式不变 */
+#hua1 {
+    background-image: url("HBuilderX/素材/椎名真白.jpg");
+}
+
+#hua2 {
+    background-image: url("HBuilderX/素材/雛月加代.jpg");
+}
+
+#hua3 {
+    background-image: url("HBuilderX/素材/艾莉丝.jpg");
+}
+
+#hua4 {
+    background-image: url("HBuilderX/素材/爱丽丝.jpg");
+}
+
+#hua5 {
+    background-image: url("HBuilderX/素材/千反田.jpg");
+}
+
+#hua6 {
+    background-image: url("HBuilderX/素材/温水佳树.jpg");
+}
+
+#hua1,
+#hua2,
+#hua3,
+#hua4,
+#hua5,
+#hua6 {
+    width: 25rem;
+    height: 30rem;
+    background-size: cover;
+    border-radius: 20px;
+    border: solid snow;
+    box-shadow: 0 0 20px rgba(248, 248, 248, 0.8);
+    cursor: pointer;
+}
+
+#hua2 {
+    border-color: black;
+    box-shadow: 0 0 20px rgba(18, 18, 18, 0.7);
+}
+
+#hua3 {
+    border-color: #FF6347;
+    box-shadow: 0 0 15px rgba(255, 75, 51, 0.7);
+}
+
+#hua4 {
+    border-color: #7FFF00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+}
+
+#hua5 {
+    border-color: pink;
+    box-shadow: 0 0 20px rgba(255, 192, 203, 0.8);
+}
+
+#hua6 {
+    border-color: #00FFFF;
+    box-shadow: 0 0 20px rgba(170, 255, 255, 0.8);
+}
+
+#zi1,
+#zi2,
+#zi3,
+#zi4,
+#zi5,
+#zi6 {
+    position: absolute;
+    opacity: 0;
+    top: 0rem;
+    left: 0.625rem;
+    text-shadow: 0 0 20px #fad8be;
+}
+
+#zi1 {
+    color: #fad8be;
+}
+
+#zi2 {
+    color: black;
+    text-shadow: 0 0 20px #2b2520;
+}
+
+#zi3 {
+    color: #fe6673;
+    text-shadow: 0 0 20px #ff5500;
+}
+
+#zi4 {
+    color: #bdf3d4;
+    text-shadow: 0 0 20px #55ff7f;
+}
+
+#zi5 {
+    color: #d7a4b6;
+    text-shadow: 0 0 20px #ff92ff;
+}
+
+#zi6 {
+    color: #cbf5fb;
+    text-shadow: 0 0 20px #55ffff;
+}
+
+.qu1:hover #zi1,
+.qu2:hover #zi2,
+.qu3:hover #zi3,
+.qu4:hover #zi4,
+.qu5:hover #zi5,
+.qu6:hover #zi6 {
+    opacity: 1;
+    transition: 5s;
+}
+
+.qu1:hover video,
+.qu2:hover video,
+.qu3:hover video,
+.qu4:hover video,
+.qu5:hover video,
+.qu6:hover video {
+    opacity: 1;
+}
+
+.qu1:hover .ban1 #hua1,
+.qu3:hover .ban3 #hua3,
+.qu4:hover .ban4 #hua4,
+.qu6:hover .ban6 #hua6 {
+    opacity: 0;
+    transform: translate(200px, 0px);
+    transition: 3s;
+}
+
+.qu2:hover .ban2 #hua2,
+.qu5:hover .ban5 #hua5 {
+    opacity: 0;
+    transform: rotateY(360deg);
+    transition: 3s;
+}
+
+video {
+    position: absolute;
+    width: 25rem;
+    height: 300px;
+    opacity: 0;
+    bottom: 0px;
+}
+
+/* --- Tab2 触顶效果核心样式 --- */
+#tab2 {
+    display: flex;
+    justify-items: center;
+    background-color: black;
+}
+
+.midDiv {
+    width: 80vw;
+    height: auto;
+    position: relative;
+}
+
+#tab2 div section {
+    width: 100vw;
+    height: 4000px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* 中間線 */
+.mid-line {
+    border: 1px solid wheat;
+    position: absolute;
+    left: 53%;
+    height: 80%;
+}
+
+.imgProduce {
+    opacity: 0.3;
+    /* 默认半透明 */
+    transition: opacity 0.8s ease;
+    /* 平滑过渡效果 */
+}
+
+/* 激活CSS */
+.imgProduce.active {
+    opacity: 1;
+    border: 1px solid snow;
+    cursor: pointer;
+    color: wheat;
+}
+
+/* left第一个介绍 */
+#leftProduce1 {
+    width: 750px;
+    height: 400px;
+    position: absolute;
+    left: 0px;
+    margin-top: 100px;
+}
+
+/* left第二个介绍 */
+#leftProduce2 {
+    width: 750px;
+    height: 400px;
+    position: absolute;
+    left: 0px;
+    margin-left: 50px;
+    margin-top: 700px;
+}
+
+/* left第三個介紹 */
+#leftProduce3 {
+    width: 750px;
+    height: 400px;
+    position: absolute;
+    left: 0px;
+    margin-top: 1400px;
+}
+
+/* left第四個介紹 */
+#leftProduce4 {
+    width: 750px;
+    height: 400px;
+    position: absolute;
+    left: 0px;
+    margin-top: 2100px;
+}
+
+/* right第一個介紹*/
+#rightProduce1 {
+    width: 650px;
+    height: 400px;
+    position: absolute;
+    right: 0;
+    margin-top: 200px;
+}
+
+/* right第二個介紹 */
+#rightProduce2 {
+    width: 650px;
+    height: 400px;
+    position: absolute;
+    margin-top: 800px;
+    margin-right: 70px;
+    right: 0px;
+}
+
+/* right第三個介紹 */
+#rightProduce3 {
+    width: 650px;
+    height: 400px;
+    position: absolute;
+    margin-top: 1600px;
+    margin-right: 60px;
+    right: 0px;
+}
+
+/* 圖片填充 */
+.imgProduce img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

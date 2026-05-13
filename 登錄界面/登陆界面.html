@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="IN.css" />
+	</head>
+	<body>
+		<video autoplay muted loop id="myVideo">
+            <source src="1234.mkv" type="video/mp4">
+        </video>
+		<div class="qu">
+			<div class="left" id="tu1">
+				<img src="123.jpg" alt="">
+			</div>
+			<div class="left" style="display: none;" id="tu2">
+				<img src="456.jpg" alt="" >
+			</div>
+			<div class="right">
+					<div id="shang">
+						<section>
+							<div class="btn" data-target="xia1" data-img="tu1">登錄方式一</div>
+					        <div class="btn" data-target="xia2" data-img="tu2">登錄方式二</div>
+						</section>
+					 </div>
+			<div id="xia1" class="tab" style="position:absolute;">
+				<div>
+					<div>
+						<b>賬戶：</b>
+						<input type="text" id="school" value="" placeholder="点击按钮自动填写"/>
+					</div>
+						<b>密碼：</b>
+						<input type="text"  value="" placeholder="请输入密码"  id="pwd"/>
+					</div>
+				    
+					<div class="line3">
+						<button id="fillIn">自動填寫</button>
+					</div>
+					<div class="login" id="idLogin"><a href="../動畫/動漫.html">登錄</a></div>
+				</div>
+			</div>
+
+            <div id="xia2" class="tab" style="position:absolute;display:none; ">
+                <div>
+                    <div>
+                        <b>手機號：</b>
+                        <input type="text" id="school2" value="" placeholder="点击按钮自动填写"/>
+                    </div>
+                        <b>驗證嗎：</b>
+                        <input type="text"  value="" placeholder="请输入密码"  id="pwd2"/>
+                    </div>
+                    
+                    <div class="line3">
+                        <button id="fillIn2">自動填寫</button>
+                    </div>
+                    <div class="login" id="idLogin2"><a href="../動畫/動漫.html">登錄</a></div>
+			    </div>
+            </div>
+        </div>
+			<script type="text/javascript">
+				/*按鈕自動寫入*/
+				document.getElementById("fillIn").onclick=function(){
+					document.getElementById("school").value="114";
+                    document.getElementById("pwd").value="514";
+				};
+				document.getElementById("fillIn2").onclick=function(){
+					document.getElementById("school2").value="114";
+                    document.getElementById("pwd2").value="514";
+				};
+				/*登入方式一和二的css切換*/
+				var qqCssChange=document.querySelectorAll("#shang section div");
+				qqCssChange.forEach(function(div){
+					div.addEventListener("click",function(){
+						qqCssChange.forEach(function(d){
+							d.classList.remove("active-login");
+						});
+						this.classList.add("active-login");
+					});
+				});
+				/*標籤切換*/
+				var btnClick=document.querySelectorAll(".btn");
+				var tabChange=document.querySelectorAll(".tab");
+				btnClick.forEach(function(btn){
+					btn.addEventListener("click",function(){
+						btnClick.forEach(function(b){
+							b.classList.remove("active");
+						});
+						btn.classList.add("active");
+						tabChange.forEach(function(c){
+							c.style.display="none";
+						});
+						var tabId=btn.getAttribute("data-target");
+						document.getElementById(tabId).style.display="block";
+					});
+				});
+				/*標籤左邊圖片切換*/
+				var btnClick2=document.querySelectorAll(".btn");
+				var tabChange2=document.querySelectorAll(".left");
+				btnClick2.forEach(function(btn){
+					btn.addEventListener("click",function(){
+						btnClick.forEach(function(b){
+							b.classList.remove("active");
+						});
+						btn.classList.add("active");
+						tabChange2.forEach(function(c){
+							c.style.display="none";
+						});
+						var tabId2=btn.getAttribute("data-img");
+						document.getElementById(tabId2).style.display="block";
+					});
+				});
+            </script>
+
+	</body>
+</html>
